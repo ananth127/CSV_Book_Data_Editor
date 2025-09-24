@@ -19,18 +19,18 @@
 ## Installation
 
 ```sh
-git clone <YOUR_GIT_URL>
-cd <YOUR_PROJECT_NAME>
+git clone https://github.com/ananth127/CSV_Book_Data_Editor
+cd CSV_Book_Data_Editor
 npm install
 npm run dev
 
 ```
 ## Project Structure
 
-├───components
-│   ├───csv
-│   └───ui
-├───hooks
-├───lib
-├───pages
-└───types
+-├───components
+-│   ├───csv
+-│   └───ui
+-├───hooks
+-├───lib
+-├───pages
+-└───types
