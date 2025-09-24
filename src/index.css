@@ -1,0 +1,241 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Professional Data Management Design System - CSV Editor Theme */
+
+@layer base {
+  :root {
+    --background: 250 20% 98%;
+    --foreground: 222 15% 20%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 15% 20%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 15% 20%;
+
+    --primary: 200 85% 45%;
+    --primary-foreground: 0 0% 98%;
+    --primary-hover: 200 85% 40%;
+    --primary-glow: 200 85% 65%;
+
+    --secondary: 200 25% 95%;
+    --secondary-foreground: 200 15% 30%;
+    --secondary-hover: 200 25% 90%;
+
+    --muted: 210 25% 96%;
+    --muted-foreground: 210 10% 50%;
+
+    --accent: 170 85% 45%;
+    --accent-foreground: 0 0% 98%;
+    --accent-hover: 170 85% 40%;
+
+    --success: 142 85% 45%;
+    --success-foreground: 0 0% 98%;
+    
+    --warning: 45 90% 55%;
+    --warning-foreground: 45 15% 15%;
+
+    --destructive: 0 85% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 200 20% 88%;  
+    --input: 200 20% 96%;
+    --ring: 200 85% 45%;
+
+    /* Data table specific colors */
+    --table-header: 200 30% 94%;
+    --table-row: 0 0% 100%;
+    --table-row-hover: 200 40% 97%;
+    --table-row-selected: 200 60% 95%;
+    --table-modified: 45 85% 95%;
+    --table-modified-border: 45 85% 70%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-accent: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--accent-hover)));
+    --gradient-subtle: linear-gradient(180deg, hsl(var(--background)), hsl(var(--muted)));
+
+    /* Shadows */
+    --shadow-soft: 0 2px 8px -2px hsl(var(--primary) / 0.08);
+    --shadow-medium: 0 4px 16px -4px hsl(var(--primary) / 0.12);
+    --shadow-strong: 0 8px 32px -8px hsl(var(--primary) / 0.16);
+    --shadow-glow: 0 0 24px -8px hsl(var(--primary) / 0.2);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222 25% 8%;
+    --foreground: 210 25% 92%;
+
+    --card: 222 20% 12%;
+    --card-foreground: 210 25% 92%;
+
+    --popover: 222 20% 12%;
+    --popover-foreground: 210 25% 92%;
+
+    --primary: 200 85% 55%;
+    --primary-foreground: 222 25% 8%;
+    --primary-hover: 200 85% 50%;
+    --primary-glow: 200 85% 75%;
+
+    --secondary: 222 15% 18%;
+    --secondary-foreground: 210 25% 85%;
+    --secondary-hover: 222 15% 22%;
+
+    --muted: 222 15% 15%;
+    --muted-foreground: 210 15% 65%;
+
+    --accent: 170 85% 55%;
+    --accent-foreground: 222 25% 8%;
+    --accent-hover: 170 85% 50%;
+
+    --success: 142 85% 55%;
+    --success-foreground: 222 25% 8%;
+    
+    --warning: 45 90% 65%;
+    --warning-foreground: 45 15% 15%;
+
+    --destructive: 0 85% 65%;
+    --destructive-foreground: 222 25% 8%;
+
+    --border: 222 15% 20%;
+    --input: 222 15% 18%;
+    --ring: 200 85% 55%;
+
+    /* Data table specific colors - dark mode */
+    --table-header: 222 20% 15%;
+    --table-row: 222 20% 12%;
+    --table-row-hover: 222 25% 16%;
+    --table-row-selected: 200 40% 20%;
+    --table-modified: 45 60% 20%;
+    --table-modified-border: 45 85% 50%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-medium;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  /* Professional typography for data display */
+  .font-mono {
+    font-feature-settings: "tnum" 1, "zero" 1;
+  }
+}
+
+@layer components {
+  /* Data table styles */
+  .data-table {
+    @apply border-collapse w-full bg-card shadow-soft rounded-lg overflow-hidden;
+  }
+
+  .data-table th {
+    @apply bg-table-header text-foreground font-semibold p-3 text-left border-b border-border;
+  }
+
+  .data-table td {
+    @apply bg-table-row p-3 border-b border-border transition-colors;
+  }
+
+  .data-table tr:hover td {
+    @apply bg-table-row-hover;
+  }
+
+  .data-table tr.selected td {
+    @apply bg-table-row-selected;
+  }
+
+  .data-table td.modified {
+    @apply bg-table-modified border-l-2 border-l-table-modified-border;
+  }
+
+  /* Upload zone styles */
+  .upload-zone {
+    @apply border-2 border-dashed border-border rounded-lg p-8 text-center transition-all duration-300;
+    @apply hover:border-primary hover:bg-primary/5;
+  }
+
+  .upload-zone.active {
+    @apply border-primary bg-primary/10 shadow-glow;
+  }
+
+  /* Smooth animations */
+  .animate-fade-in {
+    animation: fadeIn 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .animate-bounce-in {
+    animation: bounceIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { 
+    opacity: 0; 
+    transform: translateY(20px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+@keyframes bounceIn {
+  from {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
