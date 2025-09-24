@@ -24,14 +24,15 @@ cd CSV_Book_Data_Editor
 npm install
 npm run dev
 
-
+```
+---
 ## Project Structure
 
--├───components
--│   ├───csv
--│   └───ui
--├───hooks
--├───lib
--├───pages
--└───types
-```
+├───components
+│   ├───csv
+│   └───ui
+├───hooks
+├───lib
+├───pages
+└───types
+---
